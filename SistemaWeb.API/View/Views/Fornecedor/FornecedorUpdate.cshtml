@@ -1,0 +1,67 @@
+﻿@using Model.Enum;
+@using Model.Model;
+@model Fornecedor
+
+<form asp-action="FornecedorUpdate">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Criar Fornecedor</h1>
+
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Nome" class="control-label pt-2" style="font-size=20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger" />
+            </div>
+            <div class="col-2">
+                <label class="control-label pt-2" style="font-size:20px;">CNPJ</label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Cnpj" class="form-control" />
+                <span asp-validation-for="Cnpj" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Especialidade" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <select asp-for="Especialidade" class="form-control">
+                    <option value="@EEspecialidade.Comercio">Comercio</option>
+                    <option value="@EEspecialidade.Servico">Serviço</option>
+                    <option value="@EEspecialidade.Industria">Indústria</option>
+                </select>
+                <span asp-validation-for="Especialidade" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label class="control-label pt-2" style="font-size:20px;">CEP</label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Cep" id="cepUpdate"  class="form-control" />
+                <span asp-validation-for="Cep" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Endereco" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Endereco" id="enderecoUpdate" class="form-control" />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+
+            <div class="col-5 offset-2">
+                <a asp-action="FornecedorIndex" class="btn-primary btn form-control">Voltar</a>
+            </div>
+
+            <div class="col-5">
+                <input type="submit" value="Alterar" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

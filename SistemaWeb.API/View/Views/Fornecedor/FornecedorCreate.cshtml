@@ -1,0 +1,99 @@
+﻿@using Model.Enum;
+@using Model.Model;
+@model Fornecedor
+
+<form asp-action="FornecedorCreate">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Criar Fornecedor</h1>
+
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Nome" class="control-label pt-2" style="font-size=20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger" />
+            </div>
+            <div class="col-2">
+                <label class="control-label pt-2" style="font-size:20px;">CNPJ</label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Cnpj" class="form-control" />
+                <span asp-validation-for="Cnpj" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Especialidade" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <select asp-for="Especialidade" class="form-control">
+                    <option value="@EEspecialidade.Comercio">Comercio</option>
+                    <option value="@EEspecialidade.Servico">Serviço</option>
+                    <option value="@EEspecialidade.Industria">Indústria</option>
+                </select>
+                <span asp-validation-for="Especialidade" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label class="control-label pt-2" style="font-size:20px;">CEP</label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Cep" class="form-control" id="cep" />
+                <span asp-validation-for="Cep" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Endereco" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Endereco" class="form-control" id="endereco" />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+
+            <div class="col-5 offset-2">
+                <a asp-action="FornecedorIndex" class="btn-primary btn form-control">Voltar</a>
+            </div>
+
+            <div class="col-5">
+                <input type="submit" value="Criar" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<script>
+
+    const eNumero = (numero) => /^[0-9]+$/.test(numero)
+    const cepValido = (cep) => cep.length === 8 && eNumero(cep)
+    const CEP_NAO_ENCONTRADO = "CEP não encontrado"
+    const CEP_INCORRETO = "CEP incorreto"
+    const options = {
+        method: "GET",
+        mode: "cors",
+        headers: {
+            'content-type': 'application/json;charset=utf-8',
+        }
+    }
+
+    document.getElementById('cep').addEventListener('input', async () => {
+        var cep = document.getElementById('cep').value
+        var url = `https://viacep.com.br/ws/${cep}/json/`;
+
+        if (!cepValido(cep)) {
+            document.getElementById('endereco').value = CEP_INCORRETO
+        }
+
+        var dados = await fetch(url, options)
+        var content = await dados.json()
+        var conteudo_endereco = `${content.bairro} ${content.logradouro}, ${content.localidade}, ${content.uf}`
+
+        document.getElementById('endereco').value = content.hasOwnProperty('erro') ? CEP_NAO_ENCONTRADO : conteudo_endereco
+    })
+
+
+
+</script>
