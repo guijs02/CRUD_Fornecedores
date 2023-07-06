@@ -1,6 +1,6 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-    const CEP_NAO_ENCONTRADO = "CEP não encontrado";
-    const CEP_INCORRETO = "CEP incorreto";
+﻿const CEP_NAO_ENCONTRADO = "CEP não encontrado";
+const CEP_INCORRETO = "CEP incorreto";
+document.addEventListener('DOMContentLoaded', function () {
 
     if (document.getElementById('cep') != null) {
         configureCepField('cep', 'endereco');
@@ -16,9 +16,7 @@ async function configureCepField(cepFieldId, enderecoFieldId) {
     const enderecoField = document.getElementById(enderecoFieldId);
 
     cepField.addEventListener('focusout', async () => {
-        console.log('caiu');
         const cep = cepField.value;
-        console.log(cep);
 
         if (!cepValido(cep)) {
             enderecoField.value = CEP_INCORRETO;
@@ -28,7 +26,6 @@ async function configureCepField(cepFieldId, enderecoFieldId) {
         const url = `https://viacep.com.br/ws/${cep}/json/`;
         const dados = await fetch(url);
         const content = await dados.json();
-        console.log(content)
         if (content.hasOwnProperty('erro')) {
             enderecoField.value = CEP_NAO_ENCONTRADO;
         } else {
