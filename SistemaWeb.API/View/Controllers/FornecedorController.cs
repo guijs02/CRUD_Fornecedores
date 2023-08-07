@@ -2,7 +2,7 @@
 using Model.Model;
 using SistemaWeb.API.Services.Interfaces;
 using System.Diagnostics;
-using View.Models;
+
 
 namespace View.Controllers
 {
@@ -62,12 +62,6 @@ namespace View.Controllers
         {
             await _service.Deletar(id);
             return RedirectToAction(nameof(FornecedorIndex));
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

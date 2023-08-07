@@ -65,35 +65,4 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
-<script>
 
-    const eNumero = (numero) => /^[0-9]+$/.test(numero)
-    const cepValido = (cep) => cep.length === 8 && eNumero(cep)
-    const CEP_NAO_ENCONTRADO = "CEP não encontrado"
-    const CEP_INCORRETO = "CEP incorreto"
-    const options = {
-        method: "GET",
-        mode: "cors",
-        headers: {
-            'content-type': 'application/json;charset=utf-8',
-        }
-    }
-
-    document.getElementById('cep').addEventListener('input', async () => {
-        var cep = document.getElementById('cep').value
-        var url = `https://viacep.com.br/ws/${cep}/json/`;
-
-        if (!cepValido(cep)) {
-            document.getElementById('endereco').value = CEP_INCORRETO
-        }
-
-        var dados = await fetch(url, options)
-        var content = await dados.json()
-        var conteudo_endereco = `${content.bairro} ${content.logradouro}, ${content.localidade}, ${content.uf}`
-
-        document.getElementById('endereco').value = content.hasOwnProperty('erro') ? CEP_NAO_ENCONTRADO : conteudo_endereco
-    })
-
-
-
-</script>

@@ -26,6 +26,7 @@ async function configureCepField(cepFieldId, enderecoFieldId) {
         const url = `https://viacep.com.br/ws/${cep}/json/`;
         const dados = await fetch(url);
         const content = await dados.json();
+
         if (content.hasOwnProperty('erro')) {
             enderecoField.value = CEP_NAO_ENCONTRADO;
         } else {

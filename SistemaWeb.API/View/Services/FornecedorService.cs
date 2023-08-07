@@ -1,6 +1,7 @@
 ﻿using Model.Model;
 using SistemaWeb.API.Repository.Interfaces;
 using SistemaWeb.API.Services.Interfaces;
+using SistemaWeb.View.Utils;
 using System.Text.Json;
 
 namespace SistemaWeb.API.Services
@@ -9,16 +10,11 @@ namespace SistemaWeb.API.Services
     {
         private readonly HttpClient _http;
         private const string API = "api/Fornecedor";
-        private const string ERROR_API = "Erro ao realizar a requisição na api!";
-        private JsonSerializerOptions _options;
+ 
         public FornecedorService(HttpClient http)
         {
             _http = http;
-            _options = new JsonSerializerOptions()
-            {
-                PropertyNameCaseInsensitive = true,
-                WriteIndented = true,
-            };
+     
         }
 
         public async Task<Fornecedor> Adicionar(Fornecedor fornecedor)
@@ -26,11 +22,13 @@ namespace SistemaWeb.API.Services
             var response = await _http.PostAsJsonAsync(API, fornecedor);
             if (response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
-                return Serializador<Fornecedor>(content);
+                return await HttpClientExtensions.Desserializador<Fornecedor>(response);
             }
             else
-                throw new Exception(ERROR_API);
+            {
+                var erro = HttpClientExtensions.TratarResponse(response);
+                throw new Exception(erro);
+            }
         }
 
         public async Task<Fornecedor> Alterar(Fornecedor fornecedor)
@@ -38,20 +36,28 @@ namespace SistemaWeb.API.Services
             var response = await _http.PutAsJsonAsync(API, fornecedor);
             if (response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
-                return Serializador<Fornecedor>(content);
+                return await HttpClientExtensions.Desserializador<Fornecedor>(response);
             }
             else
-                throw new Exception(ERROR_API);
+            {
+
+                var erro = HttpClientExtensions.TratarResponse(response);
+            throw new Exception(erro);
+            }
         }
 
         public async Task<bool> Deletar(int id)
         {
             var response = await _http.DeleteAsync($"{API}/{id}");
             if (response.IsSuccessStatusCode)
+            {
                 return true;
+            }
             else
-                throw new Exception(ERROR_API);
+            {
+                var erro = HttpClientExtensions.TratarResponse(response);
+                throw new Exception(erro);
+            }
         }
 
         public async Task<Fornecedor> ObterPorId(int id)
@@ -60,12 +66,14 @@ namespace SistemaWeb.API.Services
 
             if (response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
-
-                return Serializador<Fornecedor>(content);
+                return await HttpClientExtensions.Desserializador<Fornecedor>(response);
             }
             else
-                throw new Exception(ERROR_API);
+            {
+
+                var erro = HttpClientExtensions.TratarResponse(response);
+                throw new Exception(erro);
+            }
         }
 
         public async Task<List<Fornecedor>> ObterTodos()
@@ -74,25 +82,14 @@ namespace SistemaWeb.API.Services
 
             if (response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
-
-                return Serializador<List<Fornecedor>>(content);
+                return await HttpClientExtensions.Desserializador<List<Fornecedor>>(response);
             }
             else
-                throw new Exception(ERROR_API);
-        }
-
-        public T Serializador<T>(string content)
-        {
-            try
             {
-
-                return JsonSerializer.Deserialize<T>(content, _options);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+                var erro = HttpClientExtensions.TratarResponse(response);
+                throw new Exception(erro);
             }
         }
+
     }
 }

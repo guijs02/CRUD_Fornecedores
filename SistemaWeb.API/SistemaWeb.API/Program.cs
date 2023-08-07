@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SistemaWeb.API.Context;
 using SistemaWeb.API.Repository;
 using SistemaWeb.API.Repository.Interfaces;
@@ -8,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+//DbContextOptionsBuilder optionsBuilder;
 builder.Services.AddSqlServer<AppContextData>(builder.Configuration["ConnectionStrings:Database"]);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

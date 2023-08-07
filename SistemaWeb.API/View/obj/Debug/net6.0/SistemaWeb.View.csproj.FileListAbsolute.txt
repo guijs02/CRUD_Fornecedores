@@ -1,3 +1,11 @@
+C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.AssemblyInfo.cs
+C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.RazorAssemblyInfo.cache
+C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.RazorAssemblyInfo.cs
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\bin\Debug\net6.0\SistemaWeb.API.deps.json
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\bin\Debug\net6.0\SistemaWeb.API.runtimeconfig.json
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\bin\Debug\net6.0\SistemaWeb.API.exe
@@ -62,15 +70,6 @@ C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\bin\Debug\net6.0\runtime
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\bin\Debug\net6.0\SistemaWeb.API.dll
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\bin\Debug\net6.0\SistemaWeb.API.pdb
-C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.csproj.AssemblyReference.cache
-C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.AssemblyInfoInputs.cache
-C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.AssemblyInfo.cs
-C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.csproj.CoreCompileInputs.cache
-C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.RazorAssemblyInfo.cache
-C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.RazorAssemblyInfo.cs
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\staticwebassets\msbuild.SistemaWeb.View.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\staticwebassets\msbuild.build.SistemaWeb.View.props
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.SistemaWeb.View.props
@@ -87,3 +86,4 @@ C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\refint\
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.pdb
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.genruntimeconfig.cache
 C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\ref\SistemaWeb.View.dll
+C:\Users\user\Desktop\Teste Pratico\SistemaWeb.API\View\obj\Debug\net6.0\SistemaWeb.View.MvcApplicationPartsAssemblyInfo.cs

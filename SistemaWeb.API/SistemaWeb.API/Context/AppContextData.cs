@@ -9,5 +9,11 @@ namespace SistemaWeb.API.Context
         {
         }
         public DbSet<Fornecedor> Fornecedor { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (optionsBuilder.IsConfigured) return;
+            optionsBuilder.UseSqlServer("Server=DESKTOP-E5GDEOV\\SQLEXPRESS;Database=FornecedorDb; Encrypt = False; Integrated Security = True;");
+        }
     }
 }

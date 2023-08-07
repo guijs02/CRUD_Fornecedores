@@ -19,6 +19,9 @@ namespace SistemaWeb.API.Controllers
             try
             {
                 var fornecedores = await _repo.ObterTodos();
+                if (fornecedores is null) 
+                    return NotFound();
+
                 return Ok(fornecedores);
             }
             catch (Exception ex)
@@ -32,10 +35,14 @@ namespace SistemaWeb.API.Controllers
             try
             {
                 var fornecedor = await _repo.ObterPorId(id);
+                if (fornecedor is null) 
+                    return NotFound();
+
                 return Ok(fornecedor);
             }
             catch (Exception ex)
             {
+
                 throw;
             }
         }
@@ -44,8 +51,11 @@ namespace SistemaWeb.API.Controllers
         {
             try
             {
-                var adicionado = await _repo.Adicionar(fornecedor);
-                return Ok(adicionado);
+                var obj = await _repo.Adicionar(fornecedor);
+                if(obj is null)
+                    return StatusCode(500);
+                
+                return Ok(obj);
             }
             catch (Exception ex)
             {
@@ -58,8 +68,10 @@ namespace SistemaWeb.API.Controllers
         {
             try
             {
-                var alterado = await _repo.Alterar(fornecedor);
-                return Ok(alterado);
+                var obj = await _repo.Alterar(fornecedor);
+                if(obj is null)
+                    return StatusCode(500);
+                return Ok(obj);
             }
             catch (Exception ex)
             {
@@ -73,6 +85,10 @@ namespace SistemaWeb.API.Controllers
             try
             {
                 var deletou = await _repo.Deletar(id);
+
+                if (deletou is false)
+                    return StatusCode(500);
+
                 return Ok(deletou);
             }
             catch (Exception ex)
